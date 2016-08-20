@@ -25,17 +25,14 @@
 		<link rel="shortcut icon" href="images/logo.png">
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 		<style type="text/css">
-			section#zero {
-				height: 100px;
-    			/* background: #08b2aa52; */
-			}
 
-			ul.actions{
+			/*ul.actions{
 				position: relative;
     			margin-top: 30px;
-			}
+    			display:inline-flex;
+			}*/
 
-			ul.actions li a{
+			/*ul.actions li a{
 				background: #6b88e6;
     			color: #fff!important;
 			}
@@ -43,7 +40,67 @@
 			ul.actions li a:hover{
 				background: #6b88e680;
     			color: #626262!important;
+			}*/
+
+			/*button.doc{
+				padding: 0 2em;
+				text-align:center;
+				text-decoration: none;
+			    text-indent: 0.125em;
+			    text-transform: uppercase;
+			    white-space: nowrap;
+			    letter-spacing: 0.125em;
+    			line-height: 2.75em;
+    			cursor: pointer;
+			    display: inline-block;
+			    font-size: 0.9em;
+			    -webkit-appearance: none;
+			    -ms-appearance: none;
+			    appearance: none;
+			    -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+			    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+			    -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+			    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+			    background: #6b88e6;
+    			color: #fff!important;
+    			position:relative;
+    			top:20px;
+    			border-radius:0px;
+    			box-shadow:none;
 			}
+
+			button.doc:hover{
+				background: #6b88e680;
+    			color: #626262!important;
+			}*/
+
+			.container1 { width: 100%; margin: 0 auto; }
+			.container1 .row1 { float: left; clear: both; width: 100%;margin-top:30px; }
+			.container1 .col { float: left; margin: 0 0 1.2em; padding-right: 1.2em; padding-left: 1.2em; }
+
+			.container1 .col { float: left; margin: 0 0 1.2em; padding-right: 1.2em; padding-left: 1.2em; }
+			.container1 .col.four { width: 100%; }
+			@media screen and (min-width: 767px) {
+				  .container1{width: 100%; max-width: 1080px; margin: 0 auto;}
+				  .container1 .row1{width:100%; float:left; clear:both;}
+				  .container1 .col{float: left; margin: 0 0 1em; padding-right: .5em; padding-left: .5em;}
+				  .container1 .col.four { width: 33.33%; }
+				}
+
+			/*All the button styles*/
+
+			* {-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+			a{text-decoration:none;}
+
+			/********************
+			GENERIC BUTTON STYLES
+			********************/
+			.btn {font-size: 18px; white-space:nowrap; width:100%; padding:.8em 1.5em; font-family: Open Sans, Helvetica,Arial,sans-serif; line-height:18px; display: inline-block;zoom: 1; color: #fff; text-align: center; position:relative; -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear; transition: border .25s linear, color .25s linear, background-color .25s linear;}
+
+			/*DARK BLUE BUTTON STYLES*/		
+			.btn.btn-dark-blue{background-color: #0dace9f7;text-transform:uppercase;letter-spacing:3px;}
+			.btn.btn-dark-blue:hover{background-color:#0fb0efc2;color:#626262;}
+			.btn.btn-dark-blue:active{ top: 3px; outline: none; -webkit-box-shadow: none; box-shadow: none;}
 		</style>
 	</head>
 	<body>
@@ -58,20 +115,40 @@
 			</div>
 		</section>
 
-		<section id="zero">
-			<div class="container">
-				<center>
-					<ul class="actions">
-						<li><a href="assets/resume.pdf" target="_blank" class="button scrolly">Resume (.pdf)</a></li>
-						<li><a href="assets/resume.png" target="_blank" class="button scrolly">Resume (.png) </a></li>
-						<li><a href="https://mechandansinha.github.io" target="_blank" class="button scrolly">Visit my techblog </a></li>
-					</ul>
-				</center>
+		<section id="zero" style="height:250px;">
+			<div class="container1">
+				<div class="row1">
+					<!-- <div class="4u 12u$(medium)">
+						<ul class="actions">
+							<li><a href="assets/resume.pdf" target="_blank" class="button scrolly">Resume (.pdf)</a></li>
+						</ul>
+					</div>
+					<div class="4u 12u$(medium)">
+						<ul class="actions">
+							<li><a href="assets/resume.png" target="_blank" class="button scrolly">Resume (.png) </a></li>
+						</ul>
+					</div>
+					<div class="4u 12u$(medium)">
+						<ul class="actions">
+							<li><a href="https://mechandansinha.github.io" target="_blank" class="button scrolly">Visit my techblog </a></li>
+						</ul>
+						</ul>
+					</div> -->
+					<div class="col four">
+						<a href="assets/resume.pdf" target="_blank" class="btn btn-dark-blue"> Resume (.pdf)</a>
+					</div>
+					<div class="col four">
+						<a href="assets/resume.png" target="_blank" class="btn btn-dark-blue"> Resume (.png)</a>
+					</div>
+					<div class="col four">
+						<a href="https://mechandansinha.github.io" target="_blank" class="btn btn-dark-blue"> Visit my techblog </a>
+					</div>
+				</div>
 			</div>
 		</section>
 
 		<!-- About me -->
-			<section id="one" class="main style1" style="position: relative;margin-top: -50px;">
+			<section id="one" class="main style1" style="position: relative;margin-top:-20px;">
 				<div class="container">
 					<div class="row 150%">
 						<div class="6u 12u$(medium)">
@@ -111,7 +188,6 @@
 							<p>College has been a vast learning opportunity for me. From robotics to hacking, singing to dancing and of course entrepreneurship, I explored numerous things during my freshmen and sophomore year. Life has been pretty hectic but the fun of learning new things overshadowed the sense of tiredness.</p>
 							<p>Amidst my exploration I needed something to specialize in, which I would be known for. Thus I started learning UI/UX design and web development. Later I worked as the <i>Web Coordinator</i> for our technical fest <a href="http://nvision.org.in">&eta;vision</a>. The learning was huge and now that experience helps me in improvising upon my product designing skills.  </p>
 							<p>I'm a passionate gift maker. This is the reason through which I acquired most of my skills - writing, designing, photography, cinematography, art and much more. Strong believer in <i>'make gifts for people'</i> because at the end of the day, your responsibility is towards the gift itself.</p>
-							<p style="color:#efe"><i class="icon fa-star">&nbsp;&nbsp;I'm redesigning my site using angular-material framework, will add my portfolio projects soon. </i><p>
 						</div>
 					</div>
 				</div>
@@ -185,6 +261,7 @@
 							</ul> -->
 						</div>
 					</div>
+					<p style="color:#666"><i class="icon fa-star">&nbsp;&nbsp;I'm redesigning my site using angular-material framework, will add my portfolio projects soon. </i><p>
 				</div>
 			</section>
 

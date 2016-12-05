@@ -12,4 +12,4 @@ I blog at [Divine_Lifez](https://thevindicatedaxiom.wordpress.com) on Wordpress.
 Hope you like it. Thanks for stopping by :)
 
 ###Note
-I'm currently redesigning my site with **Angular Material** framework. I'll add all my portfolio projects (academic, non-academic & personal) there. Till then you can find my resume [here](mechanicalcoder.github.io/assets/resume.pdf)
+I'm currently redesigning my site with **Angular Material** framework. I'll add all my portfolio projects (academic, non-academic & personal) there. Till then you can find my resume [here](https://mechanicalcoder.github.io/assets/resume.pdf).

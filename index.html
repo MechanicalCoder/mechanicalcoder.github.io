@@ -1,20 +1,18 @@
-<!doctype HTML>
+<!DOCTYPE HTML>
 <html>
 	<head>
 		<title>Chandan Sinha | Personal Website</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-		<meta name="keyword" content="Chandan Sinha, Chandan IIT Hyderabad, personal website, chandan sinha website, chandan sinha iit hyderabad, nvision iith, chandan sinha nvision, chandan sinha dhanbad">
-		<meta name="description" content="Chandan Sinha Personal's Website">
+		<meta name="keyword" content="chandan sinha, chandan sinha iith, iit hyderabad, student, chandan sinha iit hyderabad, personal website">
+		<meta name="description" content="Personal website of Chandan Sinha">
 		<meta name="author" content="Chandan Sinha">
 		<meta name="robots" content="index, follow">
 		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="theme-color" content="#4361b6">
+		<link rel="shortcut icon" href="img/logo.png">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
 		<meta property="og:site_name" content="MechanicalCoder">
 		<meta property="og:title" content="Chandan Sinha | Persoanl Website">
@@ -22,248 +20,137 @@
 		<meta property="og:image" content="images/logo.png">
 		<meta property="og:url" content="mechanicalcoder.github.io">
 		<meta property="og:description" content="Chandan Sinha's Personal Website">
+		<style>
+		@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
-		<link rel="shortcut icon" href="images/logo.png">
-		<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-		<style type="text/css">
-			.container1 { width: 100%; margin: 0 auto; }
-			.container1 .row1 { float: left; clear: both; width: 100%;margin-top:30px; }
-			.container1 .col { float: left; margin: 0 0 1.2em; padding-right: 1.2em; padding-left: 1.2em; }
+a {
+	color: #000;
+	text-decoration: none;
+	padding: 5px;
+}
 
-			.container1 .col { float: left; margin: 0 0 1.2em; padding-right: 1.2em; padding-left: 1.2em; }
-			.container1 .col.four { width: 100%; }
-			@media screen and (min-width: 767px) {
-				  .container1{width: 100%; max-width: 1080px; margin: 0 auto;}
-				  .container1 .row1{width:100%; float:left; clear:both;}
-				  .container1 .col{float: left; margin: 0 0 1em; padding-right: .5em; padding-left: .5em;}
-				  .container1 .col.four { width: 33.33%; }
-				}
+.socialbtnsbtnsbtns, .socialbtnsbtnsbtns ul, .socialbtnsbtnsbtns li {
+	margin: 0;
+	padding: 5px;
+}
 
-			/*All the button styles*/
+.socialbtnsbtnsbtns li {
+    list-style: none outside none;
+    display: inline-block;
+}
 
-			* {-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
-			a{text-decoration:none;}
+.socialbtns li {
+    list-style: none outside none;
+    display: inline-block;
+}
 
-			/********************
-			GENERIC BUTTON STYLES
-			********************/
-			.btn {font-size: 18px; white-space:nowrap; width:100%; padding:.8em 1.5em; font-family: Open Sans, Helvetica,Arial,sans-serif; line-height:18px; display: inline-block;zoom: 1; color: #fff; text-align: center; position:relative; -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear; transition: border .25s linear, color .25s linear, background-color .25s linear;}
+.socialbtns .fa {
+	color: #FFF;
+	text-shadow: 1px 1px 0px #000,
+			1px -1px 0px #000,
+			-1px 1px 0px #000,
+			-1px -1px 0px #000;
+	-webkit-text-shadow: 1px 1px 0px #000,
+			1px -1px 0px #000,
+			-1px 1px 0px #000,
+			-1px -1px 0px #000;
+	-moz-text-shadow: 1px 1px 0px #000,
+			1px -1px 0px #000,
+			-1px 1px 0px #000,
+			-1px -1px 0px #000;
+	-o-text-shadow: 1px 1px 0px #000,
+			1px -1px 0px #000,
+			-1px 1px 0px #000,
+			-1px -1px 0px #000;
+	transition: all ease-out 0.5s;
+	-moz-transition: all ease-out 0.5s;
+	-webkit-transition: all ease-out 0.5s;
+	-o-transition: all ease-out 0.5s;
+}
 
-			/*DARK BLUE BUTTON STYLES*/		
-			.btn.btn-dark-blue{background-color: #0594cb;text-transform:uppercase;letter-spacing:3px;}
-			.btn.btn-dark-blue:hover{background-color:#1db4ee;color:#626262;}
-			.btn.btn-dark-blue:active{ top: 3px; outline: none; -webkit-box-shadow: none; box-shadow: none;}
-		</style>
+/*
+.socialbtns .fa:hover {
+	color: #000;
+	text-shadow: 1px 1px 0px #fff,
+			1px -1px 0px #fff,
+			-1px 1px 0px #fff,
+			-1px -1px 0px #fff;
+	-webkit-text-shadow: 1px 1px 0px #fff,
+			1px -1px 0px #fff,
+			-1px 1px 0px #fff,
+			-1px -1px 0px #fff;
+	-moz-text-shadow: 1px 1px 0px #fff,
+			1px -1px 0px #fff,
+			-1px 1px 0px #fff,
+			-1px -1px 0px #fff;
+	-o-text-shadow: 1px 1px 0px #fff,
+			1px -1px 0px #fff,
+			-1px 1px 0px #fff,
+			-1px -1px 0px #fff;
+	transition: all ease 0.5s;
+	-moz-transition: all ease-in 0.5s;
+	-webkit-transition: all ease-in 0.5s;
+	-o-transition: all ease-in 0.5s;
+}
+*/
+
+.text{
+	padding:0;
+	color: #fff;
+}
+</style>
 	</head>
 	<body>
-		<section id="header">
-			<div class="inner">
-				<span class="icon major"><img src="images/chandan_pic.jpg" height="180px" style="cursor:pointer;border-radius:50%;"></span>
-				<h1>Hi, I'm <strong>Chandan Sinha</strong></h1>
-				<h2>Product Designer &amp; Creative Writer</h2>
-				<h4>Fellow @ Center for Healthcare Entrepreneurship</h4>
-				<p>IIT Hyderabad | Senior Year | Mechanical &amp; Aerospace Engineering </p><p> I think. I observe. I learn.</p>
 
-			</div>
-		</section>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-		<section id="zero" style="height:250px;">
-			<div class="container1">
-				<div class="row1">
-					<!-- <div class="4u 12u$(medium)">
-						<ul class="actions">
-							<li><a href="assets/resume.pdf" target="_blank" class="button scrolly">Resume (.pdf)</a></li>
-						</ul>
-					</div>
-					<div class="4u 12u$(medium)">
-						<ul class="actions">
-							<li><a href="assets/resume.png" target="_blank" class="button scrolly">Resume (.png) </a></li>
-						</ul>
-					</div>
-					<div class="4u 12u$(medium)">
-						<ul class="actions">
-							<li><a href="https://mechandansinha.github.io" target="_blank" class="button scrolly">Visit my techblog </a></li>
-						</ul>
-						</ul>
-					</div> -->
-					<div class="col four">
-						<a href="assets/resume.pdf" target="_blank" class="btn btn-dark-blue"> Resume (.pdf)</a>
-					</div>
-					<div class="col four">
-						<a href="assets/resume.png" target="_blank" class="btn btn-dark-blue"> Resume (.png)</a>
-					</div>
-					<div class="col four">
-						<a href="https://mechandansinha.github.io" target="_blank" class="btn btn-dark-blue"> Visit my techblog </a>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- About me -->
-			<section id="one" class="main style1" style="position: relative;margin-top:-20px;">
-				<div class="container">
-					<div class="row 150%">
-						<div class="6u 12u$(medium)">
-							<header class="major">
-								<h2>I thrive for creativity,<br />
-								design &amp; innovation</h2>
-							</header>
-							<p>Undeterred &amp; restless person trapped in a creative soul. <br>An autodidactic geek with entrepreneurial mind. <br> A passionate product designing enthusiast who sees beauty in the simplest of things. <br><br> A hardcore bibliophile - <a href="https://www.goodreads.com/user/show/37670581-chandan-sinha">Goodreads</a><br><br> And a creative writer - <a href="https://thevindicatedaxiom.wordpress.com">Wordpress</a> <br><br> An explorer in pursuit of something new specially if its challenging. Oh! I sing too for my own band <i>Transition_Redefined.</i><!-- <br>
-							Recently I started my techblog <a href="https:/thevindicatedaxiom.wordpress.com/category/techblog" target="_blank">here</a></p> -->
+				<!-- Header -->
+					<header id="header">
+						<div class="content">
+							<div class="inner">
+								<h1>Hi, I'm Chandan Sinha</h1>
+								<p>Product Designer | Creative Writer | Film-maker</p>
+								<p> An amalgamation of engineering and artistry. </p>
+							</div>
 						</div>
-						<div class="6u$ 12u$(medium) important(medium)">
-							<span class="image fit"><img src="images/mine.jpg" alt="" /></span>
-						</div>
-					</div>
-				</div>
-			</section>
-
-		<!-- Skills & Interests -->
-			<section id="two" class="main style2">
-				<div class="container">
-					<div class="row 150%">
-						<div class="6u 12u$(medium)">
-							<ul class="major-icons">
-								<li><span class="icon style1 major fa-code"></span></li>
-								<li><span class="icon style2 major fa-rocket"></span></li>
-								<li><span class="icon style5 major fa-pencil-square-o"></span></li>
-								<li><span class="icon style6 major fa-book"></span></li>
-								<li><span class="icon style3 major fa-camera-retro"></span></li>
-								<li><span class="icon style4 major fa-video-camera"></span></li>						
+						<nav>
+							<ul>
+								<li><a class="text" href="old_website/index.html" target="_blank">Old website</a></li>
+								<li><a class="text" href="https://thevindicatedaxiom.wordpress.com" target="_blank">Wordpress</a></li>
+								<li><a class="text" href="https://mechandansinha.github.io" target="_blank">Techblog</a></li>
+								<li><a class="text" href="old_website/assets/resume.pdf" target="_blank">Resume</a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
-						</div>
-						<div class="6u$ 12u$(medium)">
-							<header class="major">
-								<h2>Things I'm interested in.</h2><br />
-								<h4> There's a lot but to name just few! </h4>
-							</header>
-							<p>College has been a vast learning opportunity for me. From robotics to hacking, singing to dancing and of course entrepreneurship, I explored numerous things during my freshmen and sophomore year. Life has been pretty hectic but the fun of learning new things overshadowed the sense of tiredness.</p>
-							<p>Amidst my exploration I needed something to specialize in, which I would be known for. Thus I started learning UI/UX design and web development. Later I worked as the <i>Web Coordinator</i> for our technical fest <a href="http://nvision.org.in">&eta;vision</a>. The learning was huge and now that experience helps me in improvising upon my product designing skills.  </p>
-							<p>I'm a passionate gift maker. This is the reason through which I acquired most of my skills - writing, designing, photography, cinematography, art and much more. Strong believer in <i>'make gifts for people'</i> because at the end of the day, your responsibility is towards the gift itself.</p>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section id="three" class="main style1 special">
-				<div class="container">
-					<header class="major">
-						<h2>Currently I'm working on-</h2>
+						</nav>
 					</header>
-					<p>Entrepreneurship &amp; Technology - Learn. Unlearn. Relearn.</p>
-					<div class="row 150%">
-						<div class="4u 12u$(medium)">
-							<span class="image fit"><center><img src="http://hc.iith.ac.in/images/pasted%20svg%201946x116.svg" alt="hc.iith.ac.in" style="height:200px;width:200px;"/></center></span>
-							<h3>Centre for Healthcare Entrepreneurship</h3>
-							<p>Exploring the healthcare sector in India to bring the next medical device revolution. Started as an intern and now a fellow. Learning to apply my engineering skills for the good of humanity. </p>
-							<!-- <ul class="actions">
-								<li><a href="#" class="button">More</a></li>
-							</ul> -->
-						</div>
-						<div class="4u 12u$(medium)">
-							<span class="image fit"><center><img src="http://d27w8s76bjlz9v.cloudfront.net/wp-content/uploads/2014/01/31210948/ProductPage_M10.png" alt="tripod" style="height:200px;width:200px;" /></center></span>
-							<h3>Self-balancing Smartphone Cinematography Pod</h3>
-							<p> An improvement over the previous prototype we built last semester. Developing a responsive stabilizing equipment to shoot professional videos with smartphones on bumpy terrains.</p>
-							<!-- <ul class="actions">
-								<li><a href="#" class="button">More</a></li>
-							</ul> -->
-						</div>
-						<div class="4u$ 12u$(medium)">
-							<span class="image fit"><center><img src="http://www.designtechsys.com/images/servicesdata/concept_design.png" alt="droplet bot" style="height:200px;width:200px;"/></center></span>
-							<h3>Freelancing - Design, Art, Networking, Communication</h3>
-							<p>Nothing professional as such. Taking design classes to hone my sketching skills. Improvising on concept development and visual communication. And many more top secret things.</p>
-							<!-- <ul class="actions">
-								<li><a href="#" class="button">More</a></li>
-							</ul> -->
-						</div>
-					</div>
-				</div>
-			</section>
 
-		<!-- Current Works -->
-			<section id="three" class="main style1 special" style="position:relative;top:-180px;">
-				<div class="container">
-					<header class="major">
-						<h2>Previously I've worked on-</h2>
-					</header>
-					<p>Product Designing Projects. Do. Learn. Have fun.</p>
-					<div class="row 150%">
-						<div class="4u 12u$(medium)">
-							<span class="image fit"><center><img src="https://asset1.djicdn.com/images/360/phantom-2-vision/fly/2_1.png" alt="Phantom 2.0 Drone" style="height:200px;width:200px;"/></center></span>
-							<h3>IBM Bluemix Drone Ideathon</h3>
-							<p>Successfully completed this hackathon to develop a module for remote threat detection. Read the blog post <a href="https://thevindicatedaxiom.wordpress.com/2016/04/21/thready-threat-detection-using-drones" target="_blank">here.</a></p>
-							<!-- <ul class="actions">
-								<li><a href="#" class="button">More</a></li>
-							</ul> -->
+				<!-- Footer -->
+					<footer id="footer">
+						<div align="center" class="socialbtns">
+						<ul>
+						<li><a href="https://www.github.com/MechanicalCoder" class="fa fa-lg fa-github"></a></li>
+						<li><a href="https://quora.com/chandan-sinha-8" class="fa fa-lg fa-quora"></a></li>
+						<li><a href="https://twitter.com/quora_addict" class="fa fa-lg fa-twitter"></a></li>
+						<li><a href="https://linkedin.com/in/chandansinha1" class="fa fa-lg fa-linkedin"></a></li>
+						<li><a href="https://www.goodreads.com/user/show/37670581-chandan-sinha" class="fa fa-lg fa-goodreads">goodreads</a></li>
+						<li><a href="https://www.instagram.com/me_chandan_sinha/" class="fa fa-lg fa-instagram"></a></li>
+						<li><a href="https://www.youtube.com/channel/UC-9V3F-jbe9Kq4sN_NJYakw" class="fa fa-lg fa-youtube-play"></a></li>
+						</ul>
 						</div>
-						<div class="4u 12u$(medium)">
-							<span class="image fit"><center><img src="http://cdn-4.nikon-cdn.com/e/Q5NM96RZZo-PfqsaV_ItvdRdS9GrI_rQ4CoStNf4Xhi2nj9nEG71Yg5jv9YqfNP32LxecB3N9eC9F09ExG_qTFRwzdwSEnfs/Views/847_Full_Size_Tripod_front.png" alt="tripod" style="height:200px;width:200px;" /></center></span>
-							<h3>Cinematography Pod</h3>
-							<p><!--Inspired by not having a DSLR camera for shooting short films and limited DOF of current commercial pod, I decided to build a low cost, multi DOF cinematography pod for mobile phones specially.--> Successfully built <b>'Cinepad'</b>- a low cost smartphone cinematography equipment which provides much flexibility and stability for cinematic video capturing. Find the presentation slides <a href="http://www.slideshare.net/ChandanSinha6/me3425-mini-project" target="_blank">here.</a></p>
-							<!-- <ul class="actions">
-								<li><a href="#" class="button">More</a></li>
-							</ul> -->
-						</div>
-						<div class="4u$ 12u$(medium)">
-							<span class="image fit"><center><img src="images/eml_logo.png" style="height:200px;width:240px;"/></center></span>
-							<h3>EML IIT Hyderabad</h3>
-							<p>Worked in multiple domains but mainly as graphic designer. Created the logo &amp; backdrops for social media pages. Also made the posters for the events. Find my works <a href="https://www.facebook.com/emliith/" target="_blank">here.</a></p>
-							<!-- <ul class="actions">
-								<li><a href="#" class="button">More</a></li>
-							</ul> -->
-						</div>
-					</div>
-					<p style="color:#666"><i class="icon fa-star">&nbsp;&nbsp;I'm redesigning my site using angular-material framework, will add my portfolio projects soon. </i><p>
-				</div>
-			</section>
+						<p class="copyright">&copy; Chandan Sinha | 2017 </p>
+					</footer>
 
-		<!-- Contacts-->
-			<section id="four" class="main style2 special">
-				<div class="container">
-					<header class="major">
-						<h2>Get in touch</h2>
-					</header>
-					<p>I would love to hear from you.</p>
-					<ul class="actions uniform">
-						<li><a href="mailto:me13b1009@iith.ac.in" class="icon alt fa-envelope" style="background:none;">&nbsp;&nbsp;me13b1009@iith.ac.in<span>&nbsp;(Official)</span></a></li><br>
-						<li><a href="mailto:chandan.sinha547@gmail.com" class="icon alt fa-envelope" style="background:none;">&nbsp;&nbsp;chandan.sinha547@gmail.com<span>&nbsp;(Personal)</span></a></li><br>
-						<li><a href="tel:+91-9494826729" class="icon alt fa-phone" style="background:none;">&nbsp;<span> +91-9494826729 </span></a></li>
-					</ul>
-				</div>
-			</section>
+			</div>
 
-		<!-- Social Links -->
-			<section id="footer">
-				<ul class="icons">
-					<li><a href="https://www.github.com/MechanicalCoder" class="icon alt fa-github" target="_blank"><span class="label">Github</span></a></li>
-					<li><a href="https:/thevindicatedaxiom.wordpress.com" class="icon alt fa-wordpress" target="_blank"><span class="label">Wordpress</span></a></li>
-					<li><a href="https://quora.com/chandan-sinha-8" class="icon alt" target="_blank"><span style="font-size:1.4em;">Quora</span></a></li>
-					<li><a href="https://twitter.com/quora_addict" class="icon alt fa-twitter" target="_blank"><span class="label">LinkedIn</span></a></li>
-					<li><a href="https://linkedin.com/in/chandansinha1" class="icon alt fa-linkedin" target="_blank"><span class="label">Twitter</span></a></li>
-					<li><a href="https://sketchfab.com/chandan_sinha" class="icon alt" target="_blank"><img src="images/sketchfab.png" style="height: 50px;width: 50px;position: relative;top: 15px;right: 10px;"><span class="label">Sketchfab</span></a></li>
-					<li><a href="https://www.goodreads.com/user/show/37670581-chandan-sinha" class="icon alt" target="_blank"><img src="images/goodreads.png" style="height: 50px;width: 50px;position: relative;top: 20px;right: 33px;"><span class="label">Goodreads</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; Chandan Sinha | 2016</li><br><br>
-					<h6> Last Updated - August'16 </h6>
-				</ul>
-			</section>
+		<!-- BG -->
+			<div id="bg"></div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-			<script>
-			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-			  ga('create', 'UA-72807115-1', 'auto');
-			  ga('send', 'pageview');
-			</script>
 	</body>
 </html>

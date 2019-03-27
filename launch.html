@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Upcoming Rocket Launches</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<meta name="keyword" content="chandan sinha, chandan sinha iith, iit hyderabad, rocket launches, space, personal website">
+		<meta name="description" content="Rocket Launches">
+		<meta name="author" content="Chandan Sinha">
+		<meta name="robots" content="index, follow">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="shortcut icon" href="images/logo.png">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+		<meta property="og:site_name" content="MechanicalCoder">
+		<meta property="og:title" content="Upcoming Rocket Launches">
+		<meta property="og:type" content="Personal Website: Chandan">
+		<meta property="og:image" content="images/logo.png">
+		<meta property="og:url" content="mechanicalcoder.github.io/launch.html">
+		<meta property="og:description" content="Upcoming Rocket Launches">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    	<!-- Compiled and minified JavaScript -->
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    	<style>
+			* {
+			  box-sizing: border-box
+			}
+
+			html {
+			  -webkit-font-smoothing: antialiased;
+			  -moz-osx-font-smoothing: grayscale;
+			  font-family: 'Dosis', sans-serif;
+			  line-height: 1.6;
+			  color:black;
+			  text-align: center;
+			}
+
+			#root {
+			  max-width: 1200px;
+			  margin: 0 auto;
+			}
+
+			h3 {
+			  text-align: center;
+			  padding: 1.5rem 2.5rem;
+			  background-image: linear-gradient(120deg, #0f6fd2 0%, #345c9f 100%);
+			  margin: 0 0 2rem 0;
+			  font-size: 1.5rem;
+			}
+
+			p {
+			  /*padding: 0 2.5rem 2.5rem;*/
+			  margin: 0;
+			  color:black;
+			  font-weight:600;
+			  font-size:1.5rem;
+			  padding-bottom:10px;
+			}
+
+			.container {
+			  display: flex;
+			  flex-wrap: wrap;
+			}
+
+			.card {
+			  margin: 1rem;
+			  background: white;
+			  overflow: hidden;
+			  transition: all .2s linear;
+			  border-radius:none;
+			  box-shadow:none;
+			}
+
+			.card:hover {
+			  box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
+			  transform: translate3D(0, -2px, 0);
+			}
+
+			@media screen and (min-width: 600px) {
+			  .card {
+			    flex: 1 1 calc(100% - 2rem);
+			  }
+			}
+
+			@media screen and (min-width: 900px) {
+			  .card {
+			    flex: 1 1 calc(50% - 2rem);
+			  }
+			}
+
+			.btn{
+				background-color:#0f6fd2;
+				border-radius:30px;
+				margin:1rem 2rem 1rem;
+				padding:0 20px;
+			}
+
+			.btn:hover{
+				background-color:#0f6fd2d4;
+				font-weight:700;
+			}
+
+			.btn:visited{
+				background-color:#0f6fd2;
+			}
+    	</style>
+	</head>
+	<body>
+		<h2>Upcoming Launches</h2>
+		<div id="content"></div>
+
+
+		<!-- Script for dynamics injection -->
+		
+		<script>
+			const app = document.getElementById('content');
+			const container = document.createElement('div');
+			container.setAttribute('class','container');
+			app.appendChild(container);
+
+
+			var xmlhttp = new XMLHttpRequest();
+
+			xmlhttp.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200){
+					var data = JSON.parse(this.responseText);
+					for(var i=0;i<data.count;i++){
+						const card = document.createElement('div');
+						card.setAttribute('class','card');
+
+
+						const h3 = document.createElement('h3');
+						h3.textContent = data.launches[i].name;
+
+						const time = document.createElement('p');
+						time.textContent = data.launches[i].net;
+
+						container.appendChild(card);
+						card.appendChild(h3);
+						card.appendChild(time);	
+
+						if(data.launches[i].vidURLs){
+							const video = document.createElement('a');
+							video.setAttribute('href',data.launches[i].vidURLs);
+							video.setAttribute('class','waves-effect waves-light btn');
+							video.setAttribute('target','_blank');
+							video.innerHTML="Watch";
+							card.appendChild(video);
+						}
+
+						if(data.launches[i].infoURLs){
+							const info = document.createElement('a');
+							var infoURL = data.launches[i].infoURLs.toString().split(',')[0]
+							info.setAttribute('href',infoURL);
+							info.setAttribute('class','waves-effect waves-light btn');
+							info.setAttribute('target','_blank');
+							info.innerHTML="Info";
+							card.appendChild(info);
+						}
+					}
+				} 
+			};
+			xmlhttp.open("GET","https://launchlibrary.net/1.4/launch", true);
+			xmlhttp.send();
+		</script>
+	</body>
+</html>

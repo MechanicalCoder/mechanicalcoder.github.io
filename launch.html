@@ -71,6 +71,7 @@
 			  transition: all .2s linear;
 			  border-radius:none;
 			  box-shadow:none;
+			  width:100%;
 			}
 
 			.card:hover {
@@ -107,12 +108,26 @@
 			}
     	</style>
 	</head>
-	<body>
+	<body onload="loading()">
 		<h2>Upcoming Launches</h2>
-		<div id="content"></div>
+		<div id="loader"><img src="images/loader.svg" alt="loading..."></div>
+		<div id="content" style="display:none;"></div>
 
+		<!-- Forgive me for this garbage code. But, hey! it works. -->
 
 		<!-- Script for dynamics injection -->
+		<script>
+			var animation;
+
+			function loading() {
+			  animation = setTimeout(showPage, 4000);
+			}
+
+			function showPage() {
+			  document.getElementById("loader").style.display = "none";
+			  document.getElementById("content").style.display = "block";
+			}
+		</script>
 		
 		<script>
 			const app = document.getElementById('content');

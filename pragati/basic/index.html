@@ -1,0 +1,69 @@
+<!doctype html>
+<html style="background:#000;">
+	<head>
+		<title> Garden of the Fireflies </title>
+		<meta name="viewport" content="width = 1050, user-scalable = no" />
+		<script type="text/javascript" src="jquery.min.1.7.js"></script>
+		<script type="text/javascript" src="modernizr.2.5.3.min.js"></script>
+		<link rel="shortcut icon" href="icon.jpg">
+	</head>
+	<body>
+		<div class="flipbook-viewport">
+			<div class="container">
+				<div class="flipbook">
+					<div style="background-image:url(pages/cover1.png)"></div>
+					<div style="background-image:url(pages/copyright.jpg)"></div>
+					<div style="background-image:url(pages/dedicatedto.jpg)"></div>
+					<div style="background-image:url(pages/page1.jpg)"></div>
+					<div style="background-image:url(pages/page2.jpg)"></div>
+					<div style="background-image:url(pages/page3.jpg)"></div>
+					<div style="background-image:url(pages/page4.jpg)"></div>
+					<div style="background-image:url(pages/page5.jpg)"></div>
+					<div style="background-image:url(pages/page6.jpg)"></div>
+					<div style="background-image:url(pages/page7.jpg)"></div>
+				</div>
+			</div>
+		</div>
+
+
+		<script type="text/javascript">
+
+		function loadApp() {
+
+			// Create the flipbook
+
+			$('.flipbook').turn({
+					// Width
+
+					width:1000,
+					
+					// Height
+
+					height:700,
+
+					// Elevation
+
+					elevation: 50,
+					
+					// Enable gradients
+
+					gradients: true,
+					
+					// Auto center this flipbook
+
+					autoCenter: true
+
+			});
+		}
+
+		yepnope({
+			test : Modernizr.csstransforms,
+			yep: ['turn.js'],
+			nope: ['turn.html4.min.js'],
+			both: ['css/basic.css'],
+			complete: loadApp
+		});
+
+		</script>
+	</body>
+</html>

@@ -263,10 +263,11 @@
 						var net_time = new Date(data.results[i].net);
 
 						const date = document.createElement('h3');
-						date.textContent = net_time.toString().slice(-100,-40);
+						date.textContent = net_time.toString().slice(-100,-42);
 
 						const time = document.createElement('h3');
-						time.textContent = net_time.toString().replace('GMT+0530 (India Standard Time)','IST').slice(-12);
+						// time.textContent = net_time.toString().replace('GMT+0530 (India Standard Time)','IST').slice(-12);
+						time.textContent = net_time.toString().slice(-41);
 
 						container.appendChild(card);
 						card.appendChild(card_image);

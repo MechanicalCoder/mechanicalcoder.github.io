@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Thrust Curve Data </title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+    </head>
+    <!-- <style>
+        body{
+            text-align:center; 
+            line-height:5px;
+        }
+        form{
+            text-align:center;
+        }
+    </style> -->
+    <body>
+        <button onclick="getMetadata()"> Metadata </button>
+        <form name="search">
+            <!-- <label for="commonName"> Common Name: </label>
+            <select id="commonName" name="commonName"></select><br>
+            <label for="manufacturer"> Manufacturer: </label>
+            <select id="manufacturer" name="manufacturer"></select><br>
+            <label for="diameter"> Diameter: </label>
+            <select id="diameter" name="diameter"></select><br>
+            <label for="impulseClass"> Impulse Class: </label>
+            <select id="impulseClass" name="impulseClass"></select><br> -->
+            <table>
+                <tbody>
+                    <tr>
+                        <th><label for="commonName">Common Name:</label></th>
+                        <td><input class="form-control" type="text" name="commonName" placeholder="A8"></td>
+                    </tr>
+                    <tr>
+                        <th><label for="manufacturer">Manufacturer:</label></th>
+                        <td><select class="form-control" name="manufacturer"></td>
+                    </tr>
+                    <tr>
+                        <th><label for="diameter">Diameter:</label></th>
+                        <td><select class="form-control" name="diameter"></td>
+                    </tr>
+                    <tr>
+                        <th><label for="impulseClass">Impulse Class:</label></th>
+                        <td><select class="form-control" name="impulseClass"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <button onclick="searchForm()"> Search </button>
+        <table class="motors">
+            <tbody></tbody>
+            <tfoot><td></td></tfoot>
+        </table>
+        <button onclick="downloadResult()"> Download </button>
+        <div id="chart" style="width: 600px; height: 600px;"></div>
+
+        <script type="text/javascript">
+            /*=========== Get Metadata =============== */
+            function getMetadata(){
+                $.get('https://www.thrustcurve.org/api/v1/metadata.json', function(data){
+                    console.log('metadata response:', data);
+
+                    // populate the combo boxes in the search form
+                    let form = $('form[name=search]');
+
+                    let select = form.find('select[name=manufacturer]');
+                    select.empty().append($('<option selected>(all)</option>'));
+                    data.manufacturers.forEach(mfr => {
+                        select.append($(`<option value="${mfr.abbrev}">${mfr.name}</option>`));
+                    });
+
+                    select = form.find('select[name=diameter]');
+                    select.empty().append($('<option selected>(all)</option>'));
+                    data.diameters.forEach(diam => {
+                        select.append($(`<option>${diam}</option>`));
+                    });
+
+                    select = form.find('select[name=impulseClass]');
+                    select.empty().append($('<option selected>(all)</option>'));
+                    data.impulseClasses.forEach(cls => {
+                        select.append($(`<option>${cls}</option>`));
+                    });
+                });
+            }
+        </script>
+        <script type="text/javascript">
+            /*=========== Search for Motors ================= */
+            // pick up criteria from the form above
+            function searchForm(){
+                let form = $('form[name=search]');
+                let req = {};
+                ['commonName', 'manufacturer', 'diameter', 'impulseClass'].forEach(prop => {
+                    let v = form.find(':input[name=' + prop + ']').val();
+                    if(v != null && v.trim() !== '' && v !== '(all)'){
+                        req[prop] = v;
+                    }
+                });
+                console.log('search request:', req);
+
+                // use POST with the criteria as the JSON body
+                $.ajax({
+                    url: 'https://www.thrustcurve.org/api/v1/search.json',
+                    method: 'POST',
+                    data: JSON.stringify(req),
+                    success: function(data) {
+                        console.log('search response:', data);
+
+                        // put key data for each motor into the table
+                        let motors = $('table.motors tbody');
+                        motors.empty();
+                        function num(v, d) {
+                            return v > 0 ? v.toFixed(d) : "";
+                        }
+                        let summary = data.criteria.length < 1 ? 'no' : data.criteria.length;
+                        summary += ' search criteria: ';
+                        if (data.results != null && data.results.length > 0){
+                            data.results.forEach(r => {
+                                let tr = $(`<tr>
+                                                <td><input type="radio" name="motorId" value="${r.motorId}"></td>
+                                                <td>${r.manufacturerAbbrev}</td>
+                                                <td>${r.designation}</td>
+                                                <td>${r.diameter}</td>
+                                                <td>${num(r.totImpulseNs, 1)}</td>
+                                                <td>${num(r.burnTimeS, 2)}</td>
+                                                <td>${r.dataFiles}</td>
+                                            <tr>`);
+                                motors.append(tr);
+                            });
+                            if (data.results.length == data.matches){
+                                summary += `all ${data.results.length} matches`;
+                            }
+                            else{
+                                summary += `${data.results.length} of ${data.matches} matches`;
+                            }
+                        }
+                        else{
+                            summary += 'no matches';
+                        }
+                        $('table.motors tfoot td').text(summary);
+                    }
+                });
+            }
+        </script>
+        <script type="text/javascript">
+            /* =========== Download Data ================== */
+            // To execute the download API, we use the POST method supplying the motor ID as a JSON object.
+            function downloadResult() {
+                let motorId = $('table.motors input:checked').val();
+                if (motorId == null){
+                    alert('Pick a motor in the above table (Search first if needed).');
+                }
+                else{
+                    // use POST with the motor ID as the JSON body
+                    let req = {
+                        motorId: motorId, // motor to find files for
+                        data: 'samples', // we want just the parsed data points
+                    };
+                    console.log('donwload request:', req);
+                    $.ajax({
+                        url: 'https://www.thrustcurve.org/api/v1/download.json',
+                        method: 'POST',
+                        data: JSON.stringify(req),
+                        success: function(data) {
+                            console.log('donwload response:', data);
+
+                            // overall all data files into a line chart
+                            let title = 'no data files';
+                            let series = [];
+                            if (data.results != null && data.results.length > 0){
+                                title = data.results.length > 1 ? data.results.length + ' data files' : 'one data file';
+
+                                // make a unique name for each file
+                                let names = [];
+                                function name(result){
+                                    let name = result.format + ' ' + result.source;
+                                    if (names.indexOf(name) >= 0){
+                                        let n = 1, alt;
+                                        do 
+                                            alt = name + ' ' + ++n;
+                                        while (names.indexOf(alt) >= 0);
+                                        name = alt;
+                                    }
+                                    names.push(name);
+                                    return name;
+                                }
+
+                                // build the series data points from the thrust/time values
+                                data.results.forEach(result => {
+                                    let data = result.samples.map(s => [s.time, s.thrust]);
+                                    if (data[0][0] > 0.001){
+                                        data.splice(0, 0, [0, 0]);
+                                    }
+                                    series.push({
+                                        type: 'line',
+                                        smooth: true,
+                                        name: name(result),
+                                        showSymbol: true,
+                                        data: data,
+                                    });
+                                });
+                            }
+
+                            var myChart = echarts.init(document.getElementById('chart'), 'dark');
+                            // myChart.clear();
+                            var option = {
+                                title: {
+                                    text: title
+                                },
+                                tooltip: {
+                                    formatter: params => `time: ${params.data[0]}s, thrust: ${params.data[1]}Ns`
+                                },
+                                legend: {
+                                    right: 10, 
+                                    orient : 'vertical',
+                                    align: 'left'
+                                },
+                                xAxis: {
+                                    name: 'Time (s)'
+                                },
+                                yAxis: {
+                                    name: 'Thrust (Ns)'
+                                },
+                                series,
+                            };
+                            myChart.setOption(option);
+                        }
+                    });
+                }
+            }
+        </script>
+    </body>
+</html>
